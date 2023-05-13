@@ -51,8 +51,11 @@ jobs:
 
       # Optionally you can use the output from the Quality Gate in another step.
       # The possible outputs of the `quality-gate-status` variable are `PASSED`, `WARN` or `FAILED`.
+      - name: Create settings.xml file
+        run: echo "${{ secrets.MAVEN_SETTINGS }}" > settings.xml
+
       - name: Build and test with Maven
         env:
-          MAVEN_SETTINGS: ${{ secrets.MAVEN_SETTINGS }}
+          MAVEN_SETTINGS: ./settings.xml
         run: |
           mvn --settings $MAVEN_SETTINGS deploy -DskipTests
