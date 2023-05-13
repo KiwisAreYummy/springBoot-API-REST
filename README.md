@@ -1,20 +1,36 @@
-# springBoot-API-REST (Back-end)
-- Développer une API REST avec springBoot
-- CRUD
-- Validations
-- Pagination et tri
+# API Payment Spring Boot
+API Developed using Spring Boot for payment using Java 17
 
-## Technologies utilisées
-- Spring Boot 3
-- Java 17
-- Lombok
-- MySQL / Flyway (Migration)
-- JPA / Hibernate
-- Maven
-- Insomnie
+## Running
+To run it in [VS Code](https://code.visualstudio.com/) you can go to the debug option or just press `f5` to run the application.
 
-## Projet
-Clinique médicale dans laquelle il faut faire des opérations comme:<br>
-  - Inscription / Modification / Suppression de patients<br>
-  - Programmation et annulation de rendez-vous<br>
-  - Enregistrement / Modification / Exclusion de médecins<br>
+## Features Roadmap
+- [X] Create Payment
+  - [X] Credit or debit with mandatory card number
+  - [X] Limiting payment methods
+  - [X] With status equal to pending
+- [X] Read Payment
+  - [X] Filtered for Payer
+  - [X] Filtered for Debit Code
+  - [X] Filtered for Status
+  - [X] All Payments
+- [X] Update Payment Status
+  - [X] With different status of success
+- [X] Delete Payment
+  - [X] With status equal to pending
+
+## Automated Testing
+
+- [ ] Create Payment
+  - [ ] Credit or debit with mandatory card number
+  - [ ] Limiting payment methods
+  - [ ] With status equal to pending
+- [X] Read Payment
+  - [X] Filtered for Payer
+  - [X] Filtered for Debit Code
+  - [X] Filtered for Status
+  - [X] All Payments
+- [ ] Update Payment Status
+  - [ ] With different status of success
+- [ ] Delete Payment
+  - [ ] With status equal to pending

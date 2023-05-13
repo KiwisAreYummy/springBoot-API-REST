@@ -1,15 +1,13 @@
-package med.voll.api;
+package com.example.paymentApi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApiApplication {
+public class ApiSpringBootPaymentApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApiApplication.class, args);
-		//teste de envio 2.0
-		System.out.println("123452s");
+		SpringApplication.run(ApiSpringBootPaymentApplication.class, args);
 	}
 
 }
