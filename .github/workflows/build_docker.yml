@@ -21,8 +21,7 @@ jobs:
           aws-region: eu-west-1
           role-to-assume: arn:aws:iam::718079336318:role/github-custom-role
 
-      - name: Amazon ECR "Login" Action for GitHub Actions
+      - name: Login to Amazon ECR
+        id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
-        with:
-          registries: 718079336318.dkr.ecr.eu-west-1.amazonaws.com
       
