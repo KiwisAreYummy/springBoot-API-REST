@@ -1,10 +1,10 @@
 name: build-docker
 on:
   workflow_run:
-    workflows:
-      - "build"
-    types: [completed]
-  workflow_dispatch:
+    workflows: ["build"]
+    types:
+      - completed
+    result: success
 
 jobs:
   build:
