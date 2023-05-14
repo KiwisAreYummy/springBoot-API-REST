@@ -2,7 +2,7 @@ name: Build
 on:
   push:
     branches:
-      - feature/GA-01
+      - development
 
 jobs:
   build:
@@ -30,7 +30,7 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       # Triggering SonarQube analysis as results of it are required by Quality Gate check.
-      - name: Build and analyze
+      - name: Build & Analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -51,7 +51,11 @@ jobs:
 
       # Optionally you can use the output from the Quality Gate in another step.
       # The possible outputs of the `quality-gate-status` variable are `PASSED`, `WARN` or `FAILED`.
-      - name: Build and test with Maven
-        run: |
-          echo "${{ secrets.MAVEN_SETTINGS_XML }}" > ~/.m2/settings.xml
-          mvn deploy -DskipTests
+      - name: Create Package Directory
+        run: mkdir staging && cp target/*.jar staging
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Package
+          path: staging
