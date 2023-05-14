@@ -17,7 +17,6 @@ jobs:
         with:
           aws-region: eu-west-1
           role-to-assume: arn:aws:iam::718079336318:role/github-custom-role
-          role-session-name: GitHubSession
 
       - name: Amazon ECR "Login" Action for GitHub Actions
         uses: aws-actions/amazon-ecr-login@v1
