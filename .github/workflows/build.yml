@@ -60,6 +60,7 @@ jobs:
           path: staging
 
   build-image:
+    needs: build
     runs-on: ubuntu-latest
     permissions:
       id-token: write
