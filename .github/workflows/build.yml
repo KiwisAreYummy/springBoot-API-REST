@@ -58,3 +58,29 @@ jobs:
         with:
           name: Package
           path: staging
+
+  build-image:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: Package
+          
+      - name: Display structure of downloaded files
+        run: ls -R
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-region: eu-west-1
+          role-to-assume: arn:aws:iam::718079336318:role/github-custom-role
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
